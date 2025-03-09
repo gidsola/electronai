@@ -3,7 +3,7 @@ import Config from './config.mjs';
 async function ciDialogExchange(userQuery) {
   try {
     const
-      url = 'https://host-addy.com/api/ai/chat/completions',
+      url = 'https://hostaddy.com/api/ai/chat/completions',
       headers = {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
