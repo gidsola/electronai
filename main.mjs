@@ -22,7 +22,7 @@ const createWindow = async () => {
       webSecurity: false,
     },
   });
-  await mainWindow.loadFile('index.html');
+  await mainWindow.loadFile('assets/html/index.html');
 
   // ignore cert for localhost
   mainWindow.webContents.on('certificate-error', (event, url, error, certificate, callback) => {
