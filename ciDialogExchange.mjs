@@ -3,11 +3,11 @@ import Config from './config.mjs';
 async function ciDialogExchange(userQuery) {
   try {
     const
-      url = 'https://hostaddy.com/api/ai/chat/completions',
+      url = 'https://onsocket.com/api/v1/chat/completions',
       headers = {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
-        'onsocketauth': Config.osauth
+        'Authorization': Config.osauth
       },
       body = JSON.stringify({
         type: 'history',
