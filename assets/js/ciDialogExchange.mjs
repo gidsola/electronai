@@ -1,5 +1,10 @@
 import Config from '../../config.mjs';
 
+/**
+ * Send a user query to the OnSocket API and return the response.
+ * @param {string} userQuery 
+ * @returns {Promise<string | Error>}
+ */
 async function ciDialogExchange(userQuery) {
   try {
     const
@@ -27,6 +32,9 @@ async function ciDialogExchange(userQuery) {
       ? await response.text()
       : new Error(`HTTP error! status: ${response.status}`);
 
-  } catch (error) { console.error('Error sending message:', error); }
+  } catch (error) { 
+    console.error('Error sending message:', error);
+    return error;
+  }
 };
 export { ciDialogExchange };
