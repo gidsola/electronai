@@ -5,7 +5,8 @@ import Config from '../../config.mjs';
  * @param {string} userQuery 
  * @returns {Promise<string | Error>}
  */
-async function ciDialogExchange(userQuery) {
+async function ciDialogExchange(userQuery, USERNAME) {
+  console.log("User supplied for collection: ", USERNAME);
   try {
     const
       url = 'https://onsocket.com/api/v1/chat/completions',
@@ -16,7 +17,7 @@ async function ciDialogExchange(userQuery) {
       },
       body = JSON.stringify({
         type: 'history',
-        collection: 'goodsie',
+        collection: USERNAME,
         modelProvider: 'mistral',
         modelApiKey: Config.Mistral.api_key,
         completionOptions: Config.Mistral.completionOptions,

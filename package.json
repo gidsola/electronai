@@ -14,26 +14,43 @@
       "output": "dist"
     },
     "files": [
-      "dist/**/*",
       "node_modules/**/*",
       "assets/**/*",
       "main.mjs",
-      "config.mjs",
-      "package.json"
+      "config.mjs"
     ],
     "win": {
-      "target": "nsis"
+      "target": [
+        "nsis"
+      ]
+    },
+    "nsis": {
+      "warningsAsErrors": false,
+      "oneClick": false,
+      "createDesktopShortcut": true,
+      "runAfterFinish": true,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "assets/icon.ico",
+      "uninstallerIcon": "assets/uninstall.ico",
+      "uninstallDisplayName": "ChatBotV1",
+      "license": "license.txt"
     },
     "mac": {
-      "target": "dmg"
+      "target": [
+        "dmg"
+      ],
+      "icon": "assets/icon.icns"
     },
     "linux": {
-      "target": "AppImage"
+      "target": [
+        "AppImage"
+      ],
+      "category": "Utility"
     }
   },
-  "author": "",
+  "author": "goodsie",
   "license": "ISC",
-  "description": "",
+  "description": "Electron interface to OnSocket",
   "devDependencies": {
     "@types/uuid": "^10.0.0",
     "electron": "^32.1.2",
@@ -41,5 +58,9 @@
     "marked": "^14.1.2",
     "typescript": "^5.6.2",
     "uuid": "^10.0.0"
+  },
+  "dependencies": {
+    "electron-prompt": "^1.7.0",
+    "winreg": "^1.2.5"
   }
 }

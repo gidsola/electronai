@@ -1,18 +1,31 @@
 document.getElementById('submitButton').addEventListener('click', async () => {
-    const inputField = document.getElementById('inputField'),
-      displayFrame = document.getElementById('displayFrame'),
-      loadingBubble = document.getElementById('loadingBubble'),
-      userInput = inputField.value;
-    if (!userInput) return;
+  const inputField = document.getElementById('inputField');
+  const displayFrame = document.getElementById('displayFrame');
+  const loadingBubble = document.getElementById('loadingBubble');
+  const userInput = inputField.value;
 
-    loadingBubble.style.display = 'flex';
-    const response = await AIRequest(userInput);
-    loadingBubble.style.display = 'none';
+  if (!userInput) return;
 
-    displayFrame.innerHTML = marked.parse(response);
-    hljs.highlightAll();
-  });
+  loadingBubble.style.display = 'flex';
 
-  async function AIRequest(input) {
-    return (await import('./ciDialogExchange.mjs')).ciDialogExchange(input);
-  };
+  const
+    USERNAME = await window.processBridge.getUsername(),
+    response = await AIRequest(userInput, USERNAME);
+
+  loadingBubble.style.display = 'none';
+
+  displayFrame.innerHTML = response;
+
+  renderMathInElement(document.body);
+
+  displayFrame.innerHTML = marked.parse(displayFrame.innerHTML);
+
+  hljs.highlightAll();
+
+});
+
+async function AIRequest(input, USERNAME) {
+  return (await import('./ciDialogExchange.mjs')).ciDialogExchange(input, USERNAME);
+}
+
+
