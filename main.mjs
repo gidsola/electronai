@@ -45,6 +45,9 @@ async function createWindow() {
 app
   .on('ready', async () => {
     try {
+      // extract and rename for auth key usage
+      // const OS_AUTH = execSync('reg query "HKCU\\Software\\ChatBotV1" /v "OSAuth"')
+      //   .toString().split('REG_SZ')[1].trim();
       USERNAME = execSync('reg query "HKCU\\Software\\ChatBotV1" /v "UserName"')
         .toString().split('REG_SZ')[1].trim();
     }
