@@ -6,7 +6,7 @@ import Config from '../../config.mjs';
  * @returns {Promise<string | Error>}
  */
 async function ciDialogExchange(userQuery, USERNAME) {
-  console.log("User supplied for collection: ", USERNAME);
+  // console.log("User supplied for collection: ", USERNAME);
   try {
     const
       url = 'https://onsocket.com/api/v1/chat/completions',

@@ -1,3 +1,13 @@
+
+document.getElementById('inputField').addEventListener('keypress', (event) => {
+  const inputField = document.getElementById('inputField');
+  if (event.key === 'Enter' && !event.shiftKey) {
+    event.preventDefault();
+    document.getElementById('submitButton').click();
+    inputField.value = '';
+  }
+});
+
 document.getElementById('submitButton').addEventListener('click', async () => {
   const inputField = document.getElementById('inputField');
   const displayFrame = document.getElementById('displayFrame');
