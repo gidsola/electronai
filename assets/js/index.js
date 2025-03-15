@@ -35,7 +35,7 @@ document.getElementById('submitButton').addEventListener('click', async () => {
 
   const
     newInner = marked.parse(displayFrame.innerHTML),
-    aiMsg = '<div class="dateTime">AI @ ' + new Date().toLocaleString() + '</div>' + '<div class="message_output">' + newInner + '</div>';
+    aiMsg = '<div class="dateTime">Assistant @ ' + new Date().toLocaleString() + '</div>' + '<div class="message_output">' + newInner + '</div>';
 
   displayFrame.innerHTML = userMsg + aiMsg;
   hljs.highlightAll();
